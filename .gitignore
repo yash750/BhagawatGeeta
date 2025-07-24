@@ -1,1 +1,5 @@
 .env
+venv310
+venv
+.gitignore
+
