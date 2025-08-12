@@ -48,8 +48,8 @@ vector_store = QdrantVectorStore(
 )
 
 # llm = init_chat_model("mistral-large-latest", model_provider="mistralai")
-# llm = init_chat_model("gpt-4o-mini", model_provider="openai")
-llm =  ChatOpenAI(temperature=0,openai_api_key=os.getenv("OPENROUTER_API_KEY"), openai_api_base=os.getenv("OPENAI_API_BASE"))
+llm = init_chat_model("gpt-4o-mini", model_provider="openai")
+# llm =  ChatOpenAI(temperature=0,openai_api_key=os.getenv("OPENROUTER_API_KEY"), openai_api_base=os.getenv("OPENAI_API_BASE"))
 
 # Define state for application
 class State(TypedDict):
@@ -76,7 +76,7 @@ if __name__ == "__main__":
     graph_builder.add_edge(START, "retrieve")
     graph = graph_builder.compile()
 
-    response = graph.invoke({"question": "Can you explain best verses of chapter 3 from Bhagavad Gita?"})
+    response = graph.invoke({"question": "When did Krinshna got angry on Arjun?"})
     retrieved_docs = response["context"]
 
     print("---------------------#############-----------------------")
